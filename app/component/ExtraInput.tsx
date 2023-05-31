@@ -120,6 +120,7 @@ export const ExtraInput = () => {
           onChange={() => setResize(1)}
           checked={resize === 1}
         />
+        <label>1</label>
         <input
           type="radio"
           name="resize"
@@ -127,6 +128,7 @@ export const ExtraInput = () => {
           onChange={() => setResize(2)}
           checked={resize === 2}
         />
+        <label>2</label>
         <input
           type="radio"
           name="resize"
@@ -134,6 +136,7 @@ export const ExtraInput = () => {
           onChange={() => setResize(4)}
           checked={resize === 4}
         />
+        <label>4</label>
       </div>
       <div>
         <label>Upscaler 1</label>
