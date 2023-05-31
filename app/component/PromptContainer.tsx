@@ -15,9 +15,18 @@ export const PromptContainer = ({ mode }: { mode: number }) => {
     dispatch(setSettings({ ...settings, prompt: e.target.value }));
   };
 
+  const handleNegativeChange = (e: any) => {
+    dispatch(setSettings({ ...settings, negative_prompt: e.target.value }));
+  };
+
   return (
     <div>
       <input type="text" value={settings.prompt} onChange={handleChange} />
+      <input
+        type="text"
+        value={settings.negative_prompt}
+        onChange={handleNegativeChange}
+      />
     </div>
   );
 };

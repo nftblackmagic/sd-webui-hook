@@ -286,13 +286,13 @@ const ImageMaskCanvas: FC<ImageMaskCanvasProps> = (
         ref={canvasRef}
         width={512}
         height={512}
-        style={{ display: "block" }}
+        style={{ display: "block", border: "1px solid black" }}
       />
       <canvas
         ref={maskCanvasRef}
         width={512}
         height={512}
-        style={{ display: "none" }}
+        style={{ display: "none", border: "1px solid black" }}
       />
       <button onClick={resetCanvas}>Reset</button>
       <button onClick={clearCanvas}>Clear</button>

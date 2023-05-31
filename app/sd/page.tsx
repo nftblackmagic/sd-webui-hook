@@ -43,14 +43,12 @@ export default function Page() {
   useEffect(() => {
     if (generatedImages.length > 0) {
       setImages(generatedImages);
-      console.log("images", generatedImages);
     }
   }, [generatedImages]);
 
   useEffect(() => {
     if (generatedImages2.length > 0) {
       setImages(generatedImages2);
-      console.log("images", generatedImages2);
     }
   }, [generatedImages2]);
   return (
@@ -69,7 +67,6 @@ export default function Page() {
               key={index}
               src={`data:image/png;base64,${image}`}
               width="256"
-              height="256"
               alt={`image-${index}`}
             />
           ))}
@@ -77,8 +74,8 @@ export default function Page() {
       <div>
         <h1> img2img generation </h1>
         <PromptContainer mode={1} />
-        <ControlNetInput mode={1} />
         <Img2imgImageInput />
+        <ControlNetInput mode={1} />
         <button onClick={handleImg2imgClick}>img2img</button>
         {loading2 && <div>loading...</div>}
         {error2 && <div>{error}</div>}
@@ -88,7 +85,6 @@ export default function Page() {
               key={index}
               src={`data:image/png;base64,${image}`}
               width="256"
-              height="256"
               alt={`image-${index}`}
             />
           ))}
