@@ -2,8 +2,10 @@
 
 import { CommonInput } from "../component/CommonInput";
 import { ControlNetInput } from "../component/ControlNetInput";
+import { ExtraInput } from "../component/ExtraInput";
 import { Img2imgImageInput } from "../component/Img2imgImageInput";
 import { PromptContainer } from "../component/PromptContainer";
+import { useExtra } from "../hook/useExtra.hook";
 import { useImg2img } from "../hook/useImg2img.hook";
 import { useTxt2img } from "../hook/useTxt2img.hook";
 import { useEffect, useState } from "react";
@@ -29,6 +31,17 @@ export default function Page() {
     error: error2,
     img2img,
   } = useImg2img({
+    url: "http://0.0.0.0:7861",
+    port: "",
+  });
+
+  const {
+    images: generatedImages3,
+    result: result3,
+    loading: loading3,
+    error: error3,
+    extra,
+  } = useExtra({
     url: "http://0.0.0.0:7861",
     port: "",
   });
@@ -82,6 +95,22 @@ export default function Page() {
         {error2 && <div>{error}</div>}
         {images.length > 0 &&
           images.map((image, index) => (
+            <img
+              key={index}
+              src={`data:image/png;base64,${image}`}
+              width="256"
+              alt={`image-${index}`}
+            />
+          ))}
+      </div>
+      <div>
+        <h1> extra generation </h1>
+        <ExtraInput />
+        <button onClick={extra}>extra</button>
+        {loading3 && <div>loading...</div>}
+        {error3 && <div>{error}</div>}
+        {generatedImages3.length > 0 &&
+          generatedImages3.map((image, index) => (
             <img
               key={index}
               src={`data:image/png;base64,${image}`}
