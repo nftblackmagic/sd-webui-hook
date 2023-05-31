@@ -1,5 +1,6 @@
 "use client";
 
+import { CommonInput } from "../component/CommonInput";
 import { ControlNetInput } from "../component/ControlNetInput";
 import { Img2imgImageInput } from "../component/Img2imgImageInput";
 import { PromptContainer } from "../component/PromptContainer";
@@ -54,10 +55,10 @@ export default function Page() {
   return (
     <>
       <div>
-        txt2img generation
+        <h1>txt2img generation</h1>
         <PromptContainer mode={0} />
+        <CommonInput mode={0} />
         <ControlNetInput mode={0} />
-        {/* <ImageUpload /> */}
         <button onClick={handleTxt2imgClick}>txt2img</button>
         {loading && <div>loading...</div>}
         {error && <div>{error}</div>}

@@ -21,12 +21,17 @@ export const PromptContainer = ({ mode }: { mode: number }) => {
 
   return (
     <div>
-      <input type="text" value={settings.prompt} onChange={handleChange} />
-      <input
-        type="text"
-        value={settings.negative_prompt}
-        onChange={handleNegativeChange}
-      />
+      <div>
+        <label htmlFor="prompt">Prompt</label>
+        <textarea value={settings.prompt} onChange={handleChange} />
+      </div>
+      <div>
+        <label htmlFor="negative_prompt">Negative Prompt</label>
+        <textarea
+          value={settings.negative_prompt}
+          onChange={handleNegativeChange}
+        />
+      </div>
     </div>
   );
 };

@@ -170,7 +170,9 @@ export const CommonInput = ({ mode }: { mode: number }) => {
           }}
         >
           {samplingMethodOptions.map((option) => (
-            <option value={option.name}>{option.name}</option>
+            <option value={option.name} key={option.name}>
+              {option.name}
+            </option>
           ))}
         </select>
         <label htmlFor="steps">Steps</label>
