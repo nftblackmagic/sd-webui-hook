@@ -296,7 +296,7 @@ const ImageMaskCanvas: FC<ImageMaskCanvasProps> = (
       />
       <button onClick={resetCanvas}>Reset</button>
       <button onClick={clearCanvas}>Clear</button>
-      <button onClick={saveMask}>Save Mask</button>
+      {/* <button onClick={saveMask}>Save Mask</button> */}
     </div>
   );
 };
