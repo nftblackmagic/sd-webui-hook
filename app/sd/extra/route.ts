@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
 
   const extraResponseJson = await extraResponse.json();
 
-  console.log("extraResponseJson in api", extraResponseJson);
+  //   console.log("extraResponseJson in api", extraResponseJson);
 
   return new Response(JSON.stringify(extraResponseJson), {
     status: 200,

@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
 
   const txt2imgResponseJson = await txt2imgResponse.json();
 
-  console.log("txt2imgResponseJson in api", txt2imgResponseJson);
+  // console.log("txt2imgResponseJson in api", txt2imgResponseJson);
 
   return new Response(JSON.stringify(txt2imgResponseJson), {
     status: 200,

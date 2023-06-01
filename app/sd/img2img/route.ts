@@ -39,7 +39,7 @@ export async function POST(req: NextRequest) {
 
   const img2imgResponseJson = await img2imgResponse.json();
 
-  console.log("img2imgResponseJson in api", img2imgResponseJson);
+  // console.log("img2imgResponseJson in api", img2imgResponseJson);
 
   return new Response(JSON.stringify(img2imgResponseJson), {
     status: 200,
