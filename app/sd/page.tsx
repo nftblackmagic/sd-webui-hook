@@ -75,8 +75,8 @@ export default function Page() {
         <button onClick={handleTxt2imgClick}>txt2img</button>
         {loading && <div>loading...</div>}
         {error && <div>{error}</div>}
-        {images.length > 0 &&
-          images.map((image, index) => (
+        {generatedImages.length > 0 &&
+          generatedImages.map((image, index) => (
             <img
               key={index}
               src={`data:image/png;base64,${image}`}
@@ -93,8 +93,8 @@ export default function Page() {
         <button onClick={handleImg2imgClick}>img2img</button>
         {loading2 && <div>loading...</div>}
         {error2 && <div>{error}</div>}
-        {images.length > 0 &&
-          images.map((image, index) => (
+        {generatedImages2.length > 0 &&
+          generatedImages2.map((image, index) => (
             <img
               key={index}
               src={`data:image/png;base64,${image}`}
