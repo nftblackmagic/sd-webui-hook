@@ -15,7 +15,6 @@ export default function Page() {
 
   const {
     images: generatedImages,
-    result,
     loading,
     error,
     txt2img,
