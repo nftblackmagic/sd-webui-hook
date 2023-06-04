@@ -11,8 +11,6 @@ export async function POST(req: NextRequest) {
 
   const body = args;
 
-  console.log("body", body);
-
   const processResponse = await fetch(
     `${sdUrl}/sdapi/v1/progress?` + new URLSearchParams(body),
     {
@@ -25,7 +23,7 @@ export async function POST(req: NextRequest) {
 
   const processResponseJson = await processResponse.json();
 
-  console.log("processResponseJson in api", processResponseJson);
+  // console.log("processResponseJson in api", processResponseJson);
 
   return new Response(JSON.stringify(processResponseJson), {
     status: 200,

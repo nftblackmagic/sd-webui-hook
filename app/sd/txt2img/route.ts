@@ -47,6 +47,16 @@ export async function POST(req: NextRequest) {
 
   // console.log("txt2imgResponseJson in api", txt2imgResponseJson);
 
+  if (txt2imgResponseJson.error) {
+    return new Response(JSON.stringify(txt2imgResponseJson), {
+      status: 500,
+      headers: {
+        "content-type": "application/json",
+        "cache-control": "public, s-maxage=1200, stale-while-revalidate=600",
+      },
+    });
+  }
+
   return new Response(JSON.stringify(txt2imgResponseJson), {
     status: 200,
     headers: {

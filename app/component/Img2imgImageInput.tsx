@@ -1,4 +1,6 @@
-import { use, useEffect, useState } from "react";
+"use client";
+
+import { useEffect, useState } from "react";
 import ImageMaskCanvas from "./ImageMaskCanvas";
 import { useSelector } from "../hook/useSelector.hook";
 import { useDispatch } from "react-redux";
@@ -55,7 +57,6 @@ export const Img2imgImageInput = () => {
         setSettings({
           ...settings,
           mask: maskImage,
-          inpainting_fill: 1,
         })
       );
     }
@@ -74,8 +75,12 @@ export const Img2imgImageInput = () => {
   }, [maskMode]);
 
   useEffect(() => {
-    dispatch(setSettings({ ...settings, inpaint_full_res: maskedContent }));
+    dispatch(setSettings({ ...settings, inpainting_fill: maskedContent }));
   }, [maskedContent]);
+
+  useEffect(() => {
+    dispatch(setSettings({ ...settings, inpaint_full_res: inpaintArea }));
+  }, [inpaintArea]);
 
   useEffect(() => {
     dispatch(

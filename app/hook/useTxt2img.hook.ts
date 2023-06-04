@@ -31,10 +31,14 @@ export const useTxt2img = ({ url, port }: { url: string; port: string }) => {
         }),
       });
       // console.log("res in hook", res);
-      const json = await res.json();
-      // console.log("json in hook", json);
-      setImages(json.images);
-      setResult(json);
+      if (res.status == 200) {
+        const json = await res.json();
+        setImages(json.images);
+        setResult(json);
+      } else {
+        const json = await res.json();
+        setError(json.error);
+      }
     } catch (err: any) {
       // console.log("err in hook", err);
       setError(err.message);

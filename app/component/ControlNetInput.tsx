@@ -4,7 +4,6 @@ import ImageMaskCanvas from "./ImageMaskCanvas";
 import { useSelector } from "../hook/useSelector.hook";
 import { setSettings as setTxt2imgSettings } from "../redux/Features/Txt2imgState/Txt2imgSlice";
 import { setSettings as setImg2imgSettings } from "../redux/Features/Img2imgState/Img2imgSlice";
-import { ControlNetModels } from "../utils/controlModel";
 
 const modules = [
   "none",

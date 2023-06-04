@@ -2,7 +2,7 @@ import React, { FC, useRef, useEffect, useState, use } from "react";
 import { contain, cover } from "../utils/canvas";
 
 interface ImageMaskCanvasProps {
-  imageHandler: (image: string | null) => void;
+  imageHandler: (image: string | null, width?: number, height?: number) => void;
   imageSizeHandler?: (imageSize: { width: number; height: number }) => void;
   maskImageHandler?: (image: string | null) => void;
   containCrop?: boolean;
@@ -117,6 +117,10 @@ const ImageMaskCanvas: FC<ImageMaskCanvasProps> = (
 
         context.drawImage(image, offsetX, offsetY, width, height);
       }
+      setMaskImage(null);
+      if (maskImageHandler) {
+        maskImageHandler(null);
+      }
     }
   };
 
@@ -131,6 +135,10 @@ const ImageMaskCanvas: FC<ImageMaskCanvasProps> = (
       maskContext.clearRect(0, 0, maskCanvas.width, maskCanvas.height);
       setImage(null);
       setMaskImage(null);
+      imageHandler(null);
+      if (maskImageHandler) {
+        maskImageHandler(null);
+      }
     }
   };
 
@@ -158,10 +166,7 @@ const ImageMaskCanvas: FC<ImageMaskCanvasProps> = (
             if (containCrop) {
               imageHandler(dataURL);
               if (imageSizeHandler) {
-                imageSizeHandler({
-                  width: canvas.width,
-                  height: canvas.height,
-                });
+                imageHandler(dataURL, canvas.width, canvas.height);
               }
             }
           }
@@ -187,7 +192,7 @@ const ImageMaskCanvas: FC<ImageMaskCanvasProps> = (
               img.width,
               img.height
             );
-            imageSizeHandler({ width: img.width, height: img.height });
+            imageHandler(finalCsv, img.width, img.height);
           }
         };
       }
